@@ -1,0 +1,35 @@
+﻿<Window x:Class="ScriptrunokV2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Scriptrunok" Height="200" Width="300"
+        Closed="MainWindow_OnClosed" Deactivated="MainWindow_OnDeactivated">
+    <Window.Style>
+        <Style TargetType="Window" BasedOn="{StaticResource {x:Type Window}}"/>
+    </Window.Style>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Button Grid.Row="2" Name="StartButton" Margin="5" Content="Старт" Width="100" 
+                Click="StartButton_Click" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+
+        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Left">
+            <TextBlock Text="Задержка после купить:" Margin="5"/>
+            <TextBox x:Name="DelayAfterBuyTextBox" Width="50" Margin="5"
+                     TextChanged="DelayAfterBuyTextBox_OnTextChanged"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Left">
+            <TextBlock Text="Частота обновления запросов:" Margin="5"/>
+            <TextBox x:Name="RefreshRateTextBox" Width="50" Margin="5"
+                     TextChanged="RefreshRateTextBox_OnTextChanged"/>
+        </StackPanel>
+        
+        <TextBlock  Margin="5" Grid.Row="3" Grid.ColumnSpan="2" 
+                    HorizontalAlignment="Center" FontSize="24" Name="IsStarted">Скрипт не запущен</TextBlock>
+    </Grid>
+</Window>
